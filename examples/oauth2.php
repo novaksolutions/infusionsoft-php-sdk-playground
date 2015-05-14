@@ -2,7 +2,7 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 require '../vendor/autoload.php';
-require '../config.example.php';
+require '../config.php';
 
 use NovakSolutions\Infusionsoft as Infusionsoft;
 
