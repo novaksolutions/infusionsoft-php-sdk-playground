@@ -1,0 +1,12 @@
+{
+    "type" : "project",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "file://c:\\u\\www\\playground.nlocal.info\\vendor\\novaksolutions\\infusionsoft-php-sdk"
+        }
+    ],
+    "require": {
+        "novaksolutions/infusionsoft-php-sdk": "dev-1.0.0-dev"
+    }
+}
