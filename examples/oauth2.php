@@ -8,19 +8,15 @@ use NovakSolutions\Infusionsoft as Infusionsoft;
 
 Infusionsoft\OAuth2::$redirectUri = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
+Infusionsoft\OAuth2::processAuthenticationResponseIfPresent();
+
 $app = NovakSolutions\Infusionsoft\App::connect();
 //If We Just Got Back From The OAuth Page...
-
-if(isset($_GET['scope']) && isset($_GET['code'])){
-    Infusionsoft\OAuth2::processAuthenticationResponseIfPresent($_GET['scope'], $_GET['code'], false);
-}
 
 if(!$app->hasTokens()){
     header("Location: " . Infusionsoft\OAuth2::getAuthorizationUrl());//Send To OAuth Page...
     die();
 }
 
-
-$results = Infusionsoft\DataService::query(Infusionsoft\Contact::blankClass(), array('FirstName' => '%'));
-
-var_dump($results);
+$results = Infusionsoft\DataService::query(Infusionsoft\Contact::blankClass(), array('FirstName' => '%'), 2);
+?><pre><?php var_dump($results); ?></pre><?php
